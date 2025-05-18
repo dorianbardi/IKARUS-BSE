@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánás József Emléktorna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f2f5; /* Háttérszín a jobb mobil megjelenésért */
+        }
+        .page-content {
+            flex-grow: 1;
+            padding: 1.5rem; /* 24px */
+            overflow-y: auto; /* Tartalom görgetése, ha túlcsordul */
+        }
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            border-top: 1px solid #e5e7eb; /* Világosszürke elválasztó */
+            padding: 0.5rem 0; /* 8px felül/alul */
+            position: fixed; /* Rögzített alul */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 0.5rem 0.25rem; /* 8px felül/alul, 4px oldalt */
+            cursor: pointer;
+            color: #6b7280; /* Alapértelmezett szürke ikon/szöveg */
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 8px; /* Lekerekített sarkok érintésre */
+            margin: 0 4px;
+        }
+        .nav-item i { /* Font Awesome ikonok méretezése */
+            font-size: 1.25rem; /* 20px */
+            margin-bottom: 0.25rem; /* 4px */
+        }
+        .nav-item span {
+            font-size: 0.75rem; /* 12px */
+        }
+        .nav-item.active {
+            color: red; /* Aktív fül színe (zöld) */
+        }
+        .nav-item:hover {
+            background-color: #f3f4f6; /* Enyhe háttérszín hover esetén */
+        }
+        .page {
+            display: none; /* Alapból minden oldal rejtett */
+        }
+        .page.active {
+            display: block; /* Az aktív oldal látható */
+        }
+        /* Kezdőlap specifikus stílusok */
+        .hero-section {
+            background-color: red;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .info-card {
+            background-color: lightgreen;
+            padding: 8rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 8rem;
+            text-align: center;
+        }
+        .info-card h3 {
+            font-size: 3rem; /* 18px */
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div id="pageKezdolap" class="page active page-content">
+        <div class="hero-section">
+            <h1 class="text-2xl font-bold mb-2">Üdvözlünk a Bánás József Emléktorna hivatalos weboldalán!</h1>
+            <p class="text-sm">Minden, amit a tornáról tudni kell, egy helyen.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Következő Meccs</h3>
+            <p>Hamarosan... (Példa: Csapat A vs Csapat B - 14:00, 1. pálya)</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Legfrissebb Hírek</h3>
+            <p>Ne feledjétek a sportszerű szurkolást! (Példa hír)</p>
+        </div>
+         <div class="info-card">
+            <h3>Eredménytábla (Példa)</h3>
+            <p>Csapat X: 3 pont</p>
+            <p>Csapat Y: 1 pont</p>
+        </div>
+    </div>
+
+    <div id="pageProfil" class="page page-content">
+        <h2 class="text-xl font-semibold mb-4">Profil / Információk</h2>
+        <div class="info-card">
+            <h3>Szervezők</h3>
+            <p>Iskolai DSK / Helyi Sportegyesület</p>
+            <p>Elérhetőség: torna@example.com</p>
+        </div>
+        <div class="info-card">
+            <h3>A Tornáról</h3>
+            <p>Ez egy barátságos amatőr focitorna, a sportszerűség jegyében. Jó szórakozást mindenkinek!</p>
+        </div>
+    </div>
+
+    <div id="pageCsapatok" class="page page-content">
+        <h2 class="text-xl font-semibold mb-4">Csapatok</h2>
+        <ul class="list-disc pl-5 space-y-2">
+            <li class="info-card">Ikarus BSE</li>
+            <li class="info-card">Villámok SE</li>
+            <li class="info-card">Atomcsigák</li>
+            <li class="info-card">Gepárdok</li>
+            </ul>
+    </div>
+
+    <div id="pageHirek" class="page page-content">
+        <h2 class="text-xl font-semibold mb-4">Hírek</h2>
+        <div class="info-card">
+            <h3>Fontos Közlemény!</h3>
+            <p>A holnapi első meccs 15 perccel később, 9:15-kor kezdődik a 2-es pályán. Megértéseteket köszönjük!</p>
+            <p class="text-xs text-gray-500 mt-2">Közzétéve: 2025. május 17.</p>
+        </div>
+        <div class="info-card">
+            <h3>Eredményhirdetés helyszíne</h3>
+            <p>Az eredményhirdetés és díjátadó a torna végén a főépület előtti téren lesz.</p>
+            <p class="text-xs text-gray-500 mt-2">Közzétéve: 2025. május 16.</p>
+        </div>
+    </div>
+
+    <div id="pageMenetrend" class="page page-content">
+        <h2 class="text-xl font-semibold mb-4">Menetrend</h2>
+        <div class="info-card">
+            <h3 class="font-semibold">1. Nap - Június X.</h3>
+            <ul class="list-disc pl-5 space-y-1">
+                <li>09:00 - Sasok FC vs Villámok SE (1. pálya)</li>
+                <li>09:00 - Atomcsigák vs Gepárdok (2. pálya)</li>
+                <li>10:00 - ...</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h3 class="font-semibold">2. Nap - Június Y.</h3>
+            <ul class="list-disc pl-5 space-y-1">
+                <li>09:00 - ...</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div style="height: 70px;"></div>
+
+
+    <nav class="bottom-nav">
+        <div class="nav-item" onclick="showPage('pageProfil')">
+            <i class="fas fa-user"></i>
+            <span>Profil</span>
+        </div>
+        <div class="nav-item" onclick="showPage('pageCsapatok')">
+            <i class="fas fa-users"></i>
+            <span>Csapatok</span>
+        </div>
+        <div class="nav-item active" onclick="showPage('pageKezdolap')">
+            <i class="fas fa-home"></i>
+            <span>Kezdőlap</span>
+        </div>
+        <div class="nav-item" onclick="showPage('pageHirek')">
+            <i class="fas fa-newspaper"></i>
+            <span>Hírek</span>
+        </div>
+        <div class="nav-item" onclick="showPage('pageMenetrend')">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Menetrend</span>
+        </div>
+    </nav>
+
+    <script>
+        // Kezdeti oldal beállítása
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('pageKezdolap'); // Alapértelmezetten a Kezdőlap jelenik meg
+        });
+
+        function showPage(pageIdToShow) {
+            // Először minden oldalt elrejtünk
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Majd megjelenítjük a kiválasztott oldalt
+            const pageToShow = document.getElementById(pageIdToShow);
+            if (pageToShow) {
+                pageToShow.classList.add('active');
+            }
+
+            // Aktív állapot beállítása a navigációs elemeken
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                // Az ikon és a szöveg alapján ellenőrizzük, melyik nav elemhez tartozik az oldal
+                // Egyszerűsített logika: ha a nav elem onclick funkciója a pageIdToShow-t hívja
+                if (item.getAttribute('onclick').includes(pageIdToShow)) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
